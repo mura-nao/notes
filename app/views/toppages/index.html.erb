@@ -1,0 +1,10 @@
+<% if logged_in? %>
+  <p>ログイン完了ユーザ: <%= link_to current_user.name, user_path(current_user.id) %></p>
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>Note</h1>
+      <%= link_to 'ログイン', login_path, class: 'btn btn-lg btn-primary' %>
+    </div>
+  </div>
+<% end %>

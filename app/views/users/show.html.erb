@@ -1,0 +1,64 @@
+ユーザー名：<%= @user.name %><br>
+
+<div class= "container">
+  <div class ="row">
+ 
+ <!--つぶやき-->
+    <div class= "col-md-8">
+      <div class ="card bg-light">
+        <div class="card-header">
+          <div class ="row">
+            <h3 class="col-md-9">つぶやき</h3>
+            <div class= "col-md-3">
+              <%= link_to "つぶやく", new_micropost_path(id: @user.id), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+          <div class="card-body">
+            <ul class= "list-group list-group-flush">
+              <% @microposts.each do |micropost| %>
+                <li class="list-group-item bg-light">
+                  <span class="text-success"><%= micropost.created_at %></span><br>
+                    <%= micropost.content %>
+                </li>
+              <% end %>
+              <%= paginate @microposts %>
+            </ul>
+          </div>
+      </div>
+      
+       
+      
+    </div>
+
+    
+  
+<!--dairy-->
+
+    <div class= "col-md-4">
+      <div class ="card bg-light">
+        <div class="card-header">
+          <div class ="row">
+            <h3 class="col-md-8">dairy</h3>
+            <div class= "col-md-4">
+              <%= link_to "投稿", new_dairy_path(id: @user.id), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+          <div class="card-body">
+            <ul class= "list-group list-group-flush">
+              <% @dairies.each do |dairy| %>
+                <li class="list-group-item bg-light">
+                  <span class="text-success"><%= dairy.created_at %></span><br>
+                    <%= link_to dairy.title, dairy %> 
+                </li>
+              <% end %>
+              <%= paginate @dairies %>
+            </ul>
+          </div>
+      </div>
+        
+    </div> 
+    
+  </div>
+</div>
