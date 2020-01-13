@@ -40,7 +40,7 @@ class DairiesController < ApplicationController
   def correct_user
     @dairy = current_user.dairies.find_by(id: params[:id])
     unless @dairy
-      redirect_to root_url
+      redirect_to "/users/#{@dairy.user_id}"
     end
   end
 

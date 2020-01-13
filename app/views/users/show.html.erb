@@ -20,6 +20,9 @@
                 <li class="list-group-item bg-light">
                   <span class="text-success"><%= micropost.created_at %></span><br>
                     <%= micropost.content %>
+                    <div class ="float-right">
+                      <%= link_to "削除", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+                    </div>
                 </li>
               <% end %>
               <%= paginate @microposts %>

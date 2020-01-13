@@ -1,0 +1,38 @@
+<h2><%= current_user.name %>のその他のページ</h2><br>
+
+<div class= "container">
+  <div class ="row">
+ 
+ <!--つぶやき-->
+    <div class= "col-md-8">
+      <div class ="card bg-warning">
+        
+        <div class="card-header">
+          <div class ="row">
+            <h3 class="col-md-9">その他のつぶやき</h3>
+            <div class= "col-md-3">
+              <%= link_to "つぶやく", new_hobby_path(id: current_user.id), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+          
+          <div class="card-body">
+            <ul class= "list-group list-group-flush">
+              <% @hobbies.each do |hobby| %>
+                <li class="list-group-item bg-warning">
+                  <span class="text-success"><%= hobby.created_at %></span><br>
+                    <%= hobby.content %>
+                    <div class ="float-right">
+                      <%= link_to "削除", hobby, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+                    </div>
+                </li>
+              <% end %>
+              <%= paginate @hobbies %>
+            </ul>
+          </div>
+          
+      </div>
+    </div>
+    
+  </div>
+</div>

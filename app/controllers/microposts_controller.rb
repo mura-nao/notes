@@ -21,12 +21,22 @@ class MicropostsController < ApplicationController
   end
 
   def destroy
+    @micropost.destroy
+    flash[:success] = 'つぶやきを削除しました。'
+    redirect_to "/users/#{@micropost.user_id}"
   end
   
   private
   
   def micropost_params
     params.require(:micropost).permit(:content)
+  end
+  
+  def correct_user
+    @micropost = current_user.microposts.find_by(id: params[:id])
+    unless @micropost
+      redirect_to "/users/#{@micropost.user_id}"
+    end
   end
   
 end

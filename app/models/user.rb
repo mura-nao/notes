@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_secure_password
   has_many :dairies
   has_many :microposts
+  has_many :hobbies
 end

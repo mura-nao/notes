@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :new, :create, :destroy]
   resources :dairies, only: [:new, :show, :create, :edit, :destroy]
   resources :microposts, only: [:new, :show, :create, :destroy]
+  resources :hobbies, only: [:index, :new, :create, :destroy]
 end
