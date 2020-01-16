@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:show]
+  
   
   def show
     @user = User.find(params[:id])
-    @microposts = current_user.microposts.order(id: :desc).page(params[:page]).per(10)
-    @dairies = current_user.dairies.order(id: :desc).page(params[:page]).per(10)
+    @microposts = @user.microposts.order(id: :desc).page(params[:page]).per(10)
+    @dairies = @user.dairies.order(id: :desc).page(params[:page]).per(10)
   end
 
   def new
