@@ -20,7 +20,7 @@
             <ul class= "list-group list-group-flush">
               <% @hobbies.each do |hobby| %>
                 <li class="list-group-item bg-warning">
-                  <span class="text-success"><%= hobby.created_at %></span><br>
+                  <span class="text-success"><%= hobby.created_at.to_s(:datetime_jp) %></span><br>
                     <%= hobby.content %>
                     <div class ="float-right">
                       <%= link_to "削除", hobby, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>

@@ -1,7 +1,7 @@
 <div class="container">
   <div>
     <h2><%= @dairy.title %></h2>
-    <span class="text-muted"><%= @dairy.created_at %></span>
+    <span class="text-success"><%= @dairy.created_at.to_s(:datetime_jp) %></span>
   </div>
         
   <div>

@@ -1,4 +1,4 @@
-ユーザー名：<%= @user.name %><br>
+ユーザー名：<%= link_to @user.name, user_path %><br>
 
 <div class= "container">
   <div class ="row">
@@ -18,7 +18,7 @@
             <ul class= "list-group list-group-flush">
               <% @microposts.each do |micropost| %>
                 <li class="list-group-item bg-light">
-                  <span class="text-success"><%= micropost.created_at %></span><br>
+                  <span class="text-success"><%= micropost.created_at.to_s(:datetime_jp) %></span><br>
                     <%= micropost.content %>
                     <div class ="float-right">
                       <% if current_user == micropost.user %>
@@ -54,7 +54,7 @@
             <ul class= "list-group list-group-flush">
               <% @dairies.each do |dairy| %>
                 <li class="list-group-item bg-light">
-                  <span class="text-success"><%= dairy.created_at %></span><br>
+                  <span class="text-success"><%= dairy.created_at.to_s(:datetime_jp) %></span><br>
                     <%= link_to dairy.title, dairy %> 
                 </li>
               <% end %>
